@@ -1,0 +1,21 @@
+body {
+	margin: 0;
+	background-color: #000;
+	color: #ff0;
+	font-family: sans-serif;
+    font-size: 13px;
+}
+
+canvas {
+	display: block;
+}
+
+#info {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+	z-index: 1; /* TODO Solve this in HTML */
+}

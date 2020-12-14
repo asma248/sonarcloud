@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Projet WebGL 2019 - Université de Limoges</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div id="info">
+        Projet WebGL 2019 - Université de Limoges
+        <script type="module" src="./script.js" ></script>
+    </div>
+
+    <script type="text/javascript" src="./threejs/dat.gui.min.js"></script>
+    <script type="x-shader/x-vertex" id="vertexShader">
+        varying vec3 vUv;
+        void main() 
+        {
+            vUv = position;
+	        vec4 modelViewPosition = modelViewMatrix * vec4(position, 1.0);
+	        gl_Position = projectionMatrix * modelViewPosition;
+        }
+    </script>
+    <script type="x-shader/x-fragment" id="fragmentShader">
+        uniform float delta;
+        varying vec3 vUv;
+        
+        void main() {
+            float  amplitude= 1.;
+            vec3 col;
+            float col1= step(cos(delta),0.5);
+            float alpha=3.*cos(delta + 0.5);
+        
+            if(col1==1.0){
+                    float colorG=  amplitude * cos(15.*delta);
+                    float colorR= sin(1.3 *delta+ 0.5)*0.0;
+                    float colorB= amplitude*cos(20.*delta);
+                    col=vec3(0.8,colorG,colorB);
+                
+            }else{
+                col=vec3(0.5);
+            }
+            
+            gl_FragColor = vec4(col,alpha);
+    
+        }
+    </script>
+
+
+  
+</body>
+
+</html>

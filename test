@@ -1,0 +1,31 @@
+                    // console.log("x : " + x + " y :" + y);
+
+                    //  turn left
+                    var rot=0.1;
+                    var actualYRotation=(locomotive.rotation.y +(deltatime * speed *( Math.PI / 180)));
+
+                    if(actualYRotation<=rot || locomotive.position.y>-121 || locomotive.position.x>-100)
+                    {
+                        if (actualYRotation<=rot) 
+                        {
+    
+
+                            locomotive.rotation.y+=(deltatime * speed*( Math.PI / 90));
+                    
+    
+    
+                        } 
+                        if (locomotive.position.y>-121) {
+                            
+                            console.log("r11 : " +locomotive.position.x + " y2 :" + locomotive.position.y);        
+
+                            locomotive.position.y -= (deltatime * speed);
+                            console.log("r1 : " +locomotive.position.x + " y2 :" + locomotive.position.y+ " rotationy :" + locomotive.rotation.y);        
+
+                        }    
+                         if (locomotive.position.x>-100) {
+                            
+
+                            locomotive.position.x -= deltatime * speed;
+
+                        } 
